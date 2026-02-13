@@ -33,7 +33,13 @@ export default async function Home() {
               Per Tanggal: {date}
             </p>
           </div>
-          <SearchBar />
+          <Suspense
+            fallback={
+              <div className='w-40 h-8 bg-slate-200 rounded-lg animate-pulse' />
+            }
+          >
+            <SearchBar />
+          </Suspense>
         </div>
         <Suspense fallback={<ListLoading />}>
           <List sekolah={res.dataSekolah} />
